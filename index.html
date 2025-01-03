@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Text Classifier</h1>
+        <form method="POST" action="/predict">
+            <label for="input_text">Enter Text:</label>
+            <textarea id="input_text" name="input_text" rows="6" required></textarea>
+            <button type="submit">Classify Text</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Prediction: <span>{{ result }}</span></h3>
+            <p>Input Text: {{ input_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
